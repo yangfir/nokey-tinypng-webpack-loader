@@ -27,7 +27,7 @@ module: {
                 {
                     loader: nokey_tinypng_loader,
                     option: {
-                        cacheFileName: '.tiny.cache.json' // 最终会在项目根目录生成该文件，建议是提交该文件到代码版本管理工具内
+                        cacheFileName: '.tiny.cache.json'
                     }
                 }
             ]
@@ -37,7 +37,8 @@ module: {
 ```
 
 # Options
+### cacheFileName
 type: `String`   
 Default: `.tiny.cache.json`   
 
-用于缓存已压缩过的文件的Map文件
+用于缓存已压缩过的文件的Map文件(会在项目根目录下生成该文件，建议将该文件与项目代码一起提交)
