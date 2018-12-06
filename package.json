@@ -1,13 +1,24 @@
 {
     "name": "nokey-tinypng-web-loader",
     "version": "1.0.0",
-    "description": "",
+    "description": "nokey tinypng webpack loader",
     "main": "index.js",
-    "scripts": {
-        "test": "jest"
+    "author": "yangfir",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yangfir/nokey-tinypng-webpack-loader"
     },
-    "author": "",
-    "license": "MIT",
+    "keywords": [
+        "webpack",
+        "loader",
+        "nokey",
+        "tinyPng"
+    ],
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/yangfir/nokey-tinypng-webpack-loader/issues"
+    },
+    "homepage": "https://github.com/yangfir/nokey-tinypng-webpack-loader#readme",
     "dependencies": {
         "chalk": "^2.4.1",
         "crypto": "^1.0.1",

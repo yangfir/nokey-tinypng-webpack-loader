@@ -14,7 +14,7 @@ module.exports = function (content) {
     this.cacheable && this.cacheable();
     const callback = this.async();
     const options = loaderUtils.getOptions(this) || {};
-    const CACHE_FILE = options.cacheFile || cacheFileName;
+    const CACHE_FILE = options.cacheFileName || cacheFileName;
 
     // 缓存标识文件就只需要读取一次 
     !tc.flag && tc.setCacheData(CACHE_FILE);
