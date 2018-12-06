@@ -7,5 +7,37 @@ $ npm i nokey-tinypng-webpack-loader --save-dev
 或者
 $ yarn add nokey-tinypng-webpack-loader -D
 ```
-# Use
+# Usage
 本loader主要是在url-loader之前对图片资源进行压缩优化的解决方案，所以配合url-loader使用能达到最佳效果
+```javascript
+const nokey_tinypng_loader = require.resolve('nokey-tinypng-loader');
+const url_loader = require.resolve('url-loader');
+// ... other conf
+module: {
+    rules: [
+        {
+            test: [/\.jpe?g$/, /\.png$/],
+            use: [
+                {
+                    loader: url_loader,
+                    options: {
+                        limit: 1000
+                    }
+                },
+                {
+                    loader: nokey_tinypng_loader,
+                    option: {
+                        cacheFileName: '.tiny.cache.json' // 最终会在项目根目录生成该文件，建议是提交该文件到代码版本管理工具内
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+# Options
+type: `String`   
+Default: `.tiny.cache.json`   
+
+用于缓存已压缩过的文件的Map文件
