@@ -1,0 +1,17 @@
+{
+    "name": "nokey-tinypng-web-loader",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "chalk": "^2.4.1",
+        "crypto": "^1.0.1",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.2"
+    }
+}
