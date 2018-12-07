@@ -1,6 +1,6 @@
 {
-    "name": "nokey-tinypng-web-loader",
-    "version": "1.0.0",
+    "name": "nokey-tinypng-webpack-loader",
+    "version": "0.0.1",
     "description": "nokey tinypng webpack loader",
     "main": "index.js",
     "author": "yangfir",

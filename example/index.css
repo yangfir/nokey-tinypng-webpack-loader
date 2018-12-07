@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.example-url {
+    background: url('./example01.png') no-repeat;
+}
+.example-base64 {
+    background: url('./example02.png') no-repeat;
+}
+
