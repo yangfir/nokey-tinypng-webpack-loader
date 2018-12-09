@@ -20,7 +20,7 @@ module.exports = function (content) {
     !tc.flag && tc.setCacheData(CACHE_FILE);
 
     // 用来做缓存hash的key
-    const resourceRelativePath = this.resourcePath.split(basePath)[1];
+    const resourceRelativePath = this.resourcePath.split(basePath)[1].replace(/\\/g, '/');
 
     // 生成当前的hash
     const curHash = crypto.createHash('md5').update(content).digest('hex');
@@ -34,14 +34,14 @@ module.exports = function (content) {
 
     // 看是否已经压缩过，压缩过的话 从缓存里去，就不走上传和下载了
     const compressItem = tc.getCompressItem(resourceRelativePath)
-    if(compressItem) {
+    if (compressItem) {
         callback(null, compressItem);
         return;
     }
 
     uploadImageToTiny(content).then(res => {
         const uploadRes = JSON.parse(res);
-        if(!uploadRes.input || !uploadRes.output || !uploadRes.output.url) {
+        if (!uploadRes.input || !uploadRes.output || !uploadRes.output.url) {
             throw new Error('upload image fail!');
         }
         console.log(chalk.green(`[tiny][${resourceRelativePath}]: ${createLogInfo(uploadRes)}`));
@@ -56,11 +56,11 @@ module.exports = function (content) {
         callback(null, tempBuf);
         return;
     }).catch(e => {
-        // 上传失败
-        this.emitError(e);
-        this.emitError(`${this.resourcePath} || 压缩失败~`);
-        // 上传失败不做任何处理 直接返回centent
-        callback(null, content);
+        if (e.name === 'StatusCodeError' && e.statusCode === 429) {
+            callback(null, content);
+        } else {
+            this.emitError(e);
+        }
     });
 
 

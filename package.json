@@ -1,6 +1,6 @@
 {
     "name": "nokey-tinypng-webpack-loader",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "nokey tinypng webpack loader",
     "main": "index.js",
     "author": "yangfir",
@@ -22,6 +22,7 @@
     "dependencies": {
         "chalk": "^2.4.1",
         "crypto": "^1.0.1",
+        "loader-utils": "^1.1.0",
         "request": "^2.88.0",
         "request-promise": "^4.2.2"
     }
